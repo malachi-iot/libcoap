@@ -518,4 +518,13 @@ int coap_option_check_critical(coap_context_t *ctx,
 coap_pdu_t *coap_wellknown_response(coap_context_t *context,
                                     coap_pdu_t *request);
 
+
+#ifdef ESP_OPEN_RTOS
+#define MEMP_COAP_NODE          COAP_NODE
+#define MEMP_COAP_RESOURCE      COAP_RESOURCE
+#define MEMP_COAP_RESOURCEATTR  COAP_RESOURCEATTR
+#define MEMP_COAP_subscription  COAP_subscription
+#endif
+
+
 #endif /* _COAP_NET_H_ */

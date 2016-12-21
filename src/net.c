@@ -134,10 +134,6 @@ coap_free_node(coap_queue_t *node) {
 static void coap_retransmittimer_execute(void *arg);
 static void coap_retransmittimer_restart(coap_context_t *ctx);
 
-#ifdef ESP_OPEN_RTOS
-#define MEMP_COAP_NODE COAP_NODE
-#endif
-
 static inline coap_queue_t *
 coap_malloc_node() {
 	return (coap_queue_t *)memp_malloc(MEMP_COAP_NODE);
