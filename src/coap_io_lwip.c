@@ -4,7 +4,7 @@
  *               2014 chrysn <chrysn@fsfe.org>
  *
  * This file is part of the CoAP library libcoap. Please see
- * README for terms of use. 
+ * README for terms of use.
  */
 
 #include "coap_config.h"
@@ -64,6 +64,11 @@ static void coap_recv(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_
 
 	coap_free_packet(packet);
 }
+
+#ifdef ESP_OPEN_RTOS
+// Lifted from https://github.com/yarrick/lwip/blob/master/src/include/lwip/ip_addr.h
+#define IPADDR_TYPE_ANY 46U
+#endif
 
 coap_endpoint_t *coap_new_endpoint(const coap_address_t *addr, int flags) {
 	coap_endpoint_t *result;

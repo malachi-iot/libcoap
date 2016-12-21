@@ -92,8 +92,13 @@ static inline void coap_memory_init(void) {}
  * declaration, but i currently don't see a standard way to check that without
  * sourcing the custom memp pools and becoming dependent of its syntax
  */
+#ifdef ESP_OPEN_RTOS
+#define coap_malloc_type(type, size) memp_malloc(type)
+#define coap_free_type(type, p) memp_free(type, p)
+#else
 #define coap_malloc_type(type, size) memp_malloc(MEMP_ ## type)
 #define coap_free_type(type, p) memp_free(MEMP_ ## type, p)
+#endif
 
 /* Those are just here to make uri.c happy where string allocation has not been
  * made conditional.
