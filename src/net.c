@@ -33,7 +33,12 @@
 #ifdef WITH_LWIP
 #include <lwip/pbuf.h>
 #include <lwip/udp.h>
+#include <lwip/init.h>
+#if LWIP_VERSION_MAJOR < 2U
 #include <lwip/timers.h>
+#else
+#include <lwip/timeouts.h>
+#endif
 #endif
 
 #include "debug.h"
