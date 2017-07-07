@@ -18,7 +18,7 @@
  *
  * The CONTIKI variable is within the Contiki build environment! */
 
-#if !defined (CONTIKI) 
+#if !defined (CONTIKI) && !defined(ESP_OPEN_RTOS)
 #include <netinet/in.h>
 #include <sys/socket.h>
 #endif /* CONTIKI */
