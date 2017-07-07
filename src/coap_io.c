@@ -123,7 +123,7 @@ coap_free_endpoint(coap_endpoint_t *ep) {
   }
 }
 
-#else /* WITH_CONTIKI */
+#elif !defined(ESP_OPEN_RTOS) /* WITH_CONTIKI */
 static inline struct coap_endpoint_t *
 coap_malloc_posix_endpoint(void) {
   return (struct coap_endpoint_t *)coap_malloc(sizeof(struct coap_endpoint_t));
