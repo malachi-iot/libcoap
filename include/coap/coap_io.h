@@ -142,6 +142,14 @@ struct pbuf *coap_packet_extract_pbuf(struct coap_packet_t *packet);
 #endif
 
 #if defined(WITH_LWIP)
+
+/*
+ * Need this here because coap_session.h isn't necessarily included yet
+ */
+struct coap_endpoint_t;
+
+typedef struct coap_endpoint_t coap_endpoint_t;
+
 /*
  * This is only included in coap_io.h instead of .c in order to be available for
  * sizeof in lwippools.h.
